@@ -1,0 +1,295 @@
+---
+id: technical-reference
+title: Technical Reference
+api: hapi-fhir-validator-api
+---
+swagger: "2.0"
+info:
+  description: "This API is used to validate all FHIR (http://www.hl7.org/fhir/) schemas"
+  version: "1.5.0"
+  title: "HAPI FHIR Validator API"
+  contact:
+    name: "John Ravan"
+    url: "https://theravans.com/"
+    email: "john@jtravan.com"
+  license:
+    name: "MIT License"
+    url: "https://www.mit.edu/"
+host: "localhost:5000"
+basePath: "/"
+tags:
+- name: "FHIR r4 (or 4.0.1)"
+  description: "Rest API for validating release 4.0.1 of the FHIR schemas"
+- name: "FHIR r5 (or 4.4.0)"
+  description: "Rest API for validating release 4.4.0 of the FHIR schemas"
+- name: "FHIR v2 (or 1.0.2)"
+  description: "Rest API for validating version 2.0 (or 1.0.2) of the FHIR schemas"
+- name: "FHIR v2.1 (or 1.4.0)"
+  description: "Rest API for validating version 2.1 (or 1.4.0) of the FHIR schemas"
+- name: "FHIR v3 (or 3.0.2)"
+  description: "Rest API for validating version 3.0.2 of the FHIR schemas"
+- name: "status-endpoints"
+  description: "Status Endpoints"
+paths:
+  /fhir/r4/validate:
+    post:
+      tags:
+      - "FHIR r4 (or 4.0.1)"
+      summary: "Validates a FHIR object against the 4.0.1 schemas"
+      operationId: "validateUsingPOST_3"
+      consumes:
+      - "application/fhir+json"
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "fhirJson"
+        description: "FHIR JSON object to be validated"
+        required: true
+        schema:
+          type: "object"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "201":
+          description: "Created"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "The resource was not found"
+        "422":
+          description: "Cannot process FHIR JSON"
+      deprecated: false
+  /fhir/r5/validate:
+    post:
+      tags:
+      - "FHIR r5 (or 4.4.0)"
+      summary: "Validates a FHIR object against the 4.4.0 schemas"
+      operationId: "validateUsingPOST_4"
+      consumes:
+      - "application/fhir+json"
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "fhirJson"
+        description: "FHIR JSON object to be validated"
+        required: true
+        schema:
+          type: "object"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "201":
+          description: "Created"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "The resource was not found"
+        "422":
+          description: "Cannot process FHIR JSON"
+      deprecated: false
+  /fhir/v2/validate:
+    post:
+      tags:
+      - "FHIR v2 (or 1.0.2)"
+      summary: "Validates a FHIR object against the v2.0 schemas"
+      operationId: "validateUsingPOST"
+      consumes:
+      - "application/fhir+json"
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "fhirJson"
+        description: "FHIR JSON object to be validated"
+        required: true
+        schema:
+          type: "object"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "201":
+          description: "Created"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "The resource was not found"
+        "422":
+          description: "Cannot process FHIR JSON"
+      deprecated: false
+  /fhir/v2_1/validate:
+    post:
+      tags:
+      - "FHIR v2.1 (or 1.4.0)"
+      summary: "Validates a FHIR object against the v2.1 schemas"
+      operationId: "validateUsingPOST_1"
+      consumes:
+      - "application/fhir+json"
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "fhirJson"
+        description: "FHIR JSON object to be validated"
+        required: true
+        schema:
+          type: "object"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "201":
+          description: "Created"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "The resource was not found"
+        "422":
+          description: "Cannot process FHIR JSON"
+      deprecated: false
+  /fhir/v3/validate:
+    post:
+      tags:
+      - "FHIR v3 (or 3.0.2)"
+      summary: "Validates a FHIR object against the 3.0.2 schemas"
+      operationId: "validateUsingPOST_2"
+      consumes:
+      - "application/fhir+json"
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "fhirJson"
+        description: "FHIR JSON object to be validated"
+        required: true
+        schema:
+          type: "object"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "201":
+          description: "Created"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "The resource was not found"
+        "422":
+          description: "Cannot process FHIR JSON"
+      deprecated: false
+  /health:
+    get:
+      tags:
+      - "status-endpoints"
+      summary: "health"
+      operationId: "healthUsingGET"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      deprecated: false
+  /info:
+    get:
+      tags:
+      - "status-endpoints"
+      summary: "info"
+      operationId: "infoUsingGET"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "string"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      deprecated: false
+definitions:
+  SingleValidationMessage:
+    type: "object"
+    properties:
+      locationCol:
+        type: "integer"
+        format: "int32"
+      locationLine:
+        type: "integer"
+        format: "int32"
+      locationString:
+        type: "string"
+      message:
+        type: "string"
+      severity:
+        type: "string"
+        enum:
+        - "INFORMATION"
+        - "WARNING"
+        - "ERROR"
+        - "FATAL"
+    title: "SingleValidationMessage"
+  ValidationResponse:
+    type: "object"
+    properties:
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/SingleValidationMessage"
+      exception:
+        type: "string"
+      info:
+        type: "array"
+        items:
+          $ref: "#/definitions/SingleValidationMessage"
+      successful:
+        type: "boolean"
+      warnings:
+        type: "array"
+        items:
+          $ref: "#/definitions/SingleValidationMessage"
+    title: "ValidationResponse"

@@ -1,0 +1,115 @@
+{
+  "resourceType": "Observation",
+  "id": "blood-pressure",
+  "meta": {
+    "lastUpdated": "2014-01-30T22:35:23+11:00"
+  },
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "55284-4",
+        "display": "Blood pressure systolic & diastolic"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example"
+  },
+  "effectiveDateTime": "2012-09-17",
+  "performer": [
+    {
+      "reference": "Practitioner/example"
+    }
+  ],
+  "interpretation": {
+    "fhir_comments": [
+      "   an interpretation offered to the combination observation\n        generally, it would only be appropriate to offer an interpretation\n        of an observation that has no value if it has \"COMP\" (component)\n        observations   "
+    ],
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v2/0078",
+        "code": "L",
+        "display": "Below low normal"
+      }
+    ],
+    "text": "low"
+  },
+  "bodySite": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "368209003",
+        "display": "Right arm"
+      }
+    ]
+  },
+  "component": [
+    {
+      "code": {
+        "fhir_comments": [
+          "  \n           Observations are often coded in multiple code systems.\n           - LOINC provides a very specific code (though not more specific in this particular case)\n           - snomed provides a clinically relevant code that is usually less granular than LOINC\n           - the source system provides its own code, which may be less or more granular than LOINC\n           ",
+          "   that shows the concept. The next two codes only have a LOINC code   "
+        ],
+        "coding": [
+          {
+            "fhir_comments": [
+              "   LOINC -code   "
+            ],
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          },
+          {
+            "fhir_comments": [
+              "   SNOMED CT Codes   "
+            ],
+            "system": "http://snomed.info/sct",
+            "code": "271649006",
+            "display": "Systolic blood pressure"
+          },
+          {
+            "fhir_comments": [
+              "   Also, a local code specific to the source system   "
+            ],
+            "system": "http://acme.org/devices/clinical-codes",
+            "code": "bp-s",
+            "display": "Systolic Blood pressure"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "fhir_comments": [
+          "   no standard units used in this example   "
+        ],
+        "value": 107,
+        "unit": "mm[Hg]"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8462-4",
+            "display": "Diastolic blood pressure"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "fhir_comments": [
+          "   no formal units in this example   "
+        ],
+        "value": 60,
+        "unit": "mm[Hg]"
+      }
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "1f8fb874-49a4-4b5b-a191-9232eba946a4",
+		"name": "HAPI FHIR Validator API",
+		"description": "This contains all FHIR Validator endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{FHIR_VALIDATOR_BASE_URL}}/health",
+					"host": [
+						"{{FHIR_VALIDATOR_BASE_URL}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{FHIR_VALIDATOR_BASE_URL}}/info",
+					"host": [
+						"{{FHIR_VALIDATOR_BASE_URL}}"
+					],
+					"path": [
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "V2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{FHIR_VALIDATOR_BASE_URL}}/fhir/v2/validate",
+					"host": [
+						"{{FHIR_VALIDATOR_BASE_URL}}"
+					],
+					"path": [
+						"fhir",
+						"v2",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "V2.1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{FHIR_VALIDATOR_BASE_URL}}/fhir/v2_1/validate",
+					"host": [
+						"{{FHIR_VALIDATOR_BASE_URL}}"
+					],
+					"path": [
+						"fhir",
+						"v2_1",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "V3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{FHIR_VALIDATOR_BASE_URL}}/fhir/v3/validate",
+					"host": [
+						"{{FHIR_VALIDATOR_BASE_URL}}"
+					],
+					"path": [
+						"fhir",
+						"v3",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "R4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{FHIR_VALIDATOR_BASE_URL}}/fhir/r4/validate",
+					"host": [
+						"{{FHIR_VALIDATOR_BASE_URL}}"
+					],
+					"path": [
+						"fhir",
+						"r4",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "R5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{FHIR_VALIDATOR_BASE_URL}}/fhir/r5/validate",
+					"host": [
+						"{{FHIR_VALIDATOR_BASE_URL}}"
+					],
+					"path": [
+						"fhir",
+						"r5",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1417af27-041a-4376-91de-e5eeeba2c142",
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({key: 'Accept', value: 'application/json'})",
+					"pm.request.headers.add({key: 'Content-Type', value: 'application/json'})"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "12f33960-2f74-432b-986e-fc7416928cbe",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

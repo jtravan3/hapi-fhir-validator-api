@@ -52,7 +52,7 @@ The project is configured with Spring dev tools which allows for hot reloads wit
 rebuild the project after making a change (In IntelliJ use `Build -> Build Project` or `CMD + F9`) and the application will
 auto re-deploy.
 
-5.) Access the API by visiting `http://localhost:5000/swagger-ui.html`. From there you can hit the endpoints directly.
+5.) Access the API by visiting `http://localhost:5000/swagger-ui/index.html`. From there you can hit the endpoints directly.
 
 6.) Success!
 
@@ -66,25 +66,19 @@ auto re-deploy.
 git clone git@github.com:jtravan3/hapi-fhir-validator-api.git
 ```
 
-3.) From the root directory run the following command to build the project.
-
-```bash
-docker-compose build
-```
-
-4.) To run the API
+3.) Run the API
 
 ```bash
 docker-compose up
 ```
 
-5.) Access the API by visiting `http://localhost:5000/swagger-ui.html`. From there you can hit the endpoints directly.
+4.) Access the API by visiting `http://localhost:5000/swagger-ui/index.html`. From there you can hit the endpoints directly.
 
-6.) Success!
+5.) Success!
 
 ## Using Swagger
 
-1.) Access the API at `http://localhost:5000/swagger-ui.html`. You should see the following homepage.
+1.) Access the API at `http://localhost:5000/swagger-ui/index.html`. You should see the following homepage.
 
 ![Swagger Home Page](./images/swagger-home.png)
 

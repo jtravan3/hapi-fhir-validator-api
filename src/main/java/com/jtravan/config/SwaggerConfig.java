@@ -2,9 +2,11 @@ package com.jtravan.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.oas.annotations.EnableOpenApi;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.Tag;
@@ -16,12 +18,14 @@ import springfox.documentation.swagger.web.UiConfigurationBuilder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
+@EnableWebMvc
+@EnableOpenApi
 @EnableSwagger2
 public class SwaggerConfig {
 
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30)
                 .apiInfo(getApiInfo())
                 .tags(new Tag("FHIR v2 (or 1.0.2)", "Rest API for validating version 2.0 (or 1.0.2) of the FHIR schemas"))
                 .tags(new Tag("FHIR v2.1 (or 1.4.0)", "Rest API for validating version 2.1 (or 1.4.0) of the FHIR schemas"))

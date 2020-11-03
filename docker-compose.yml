@@ -2,8 +2,7 @@ version: "3"
 
 services:
   hapi-fhir-validator-api:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: jtravan3/hapi-fhir-validator-api:latest
+    container_name: hapi-fhir-validator-api
     ports:
       - 5000:5000

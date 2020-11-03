@@ -66,7 +66,6 @@ paths:
           description: "The resource was not found"
         "422":
           description: "Cannot process FHIR JSON"
-      deprecated: false
   /fhir/r5/validate:
     post:
       tags:
@@ -102,7 +101,6 @@ paths:
           description: "The resource was not found"
         "422":
           description: "Cannot process FHIR JSON"
-      deprecated: false
   /fhir/v2/validate:
     post:
       tags:
@@ -138,7 +136,6 @@ paths:
           description: "The resource was not found"
         "422":
           description: "Cannot process FHIR JSON"
-      deprecated: false
   /fhir/v2_1/validate:
     post:
       tags:
@@ -174,7 +171,6 @@ paths:
           description: "The resource was not found"
         "422":
           description: "Cannot process FHIR JSON"
-      deprecated: false
   /fhir/v3/validate:
     post:
       tags:
@@ -210,7 +206,6 @@ paths:
           description: "The resource was not found"
         "422":
           description: "Cannot process FHIR JSON"
-      deprecated: false
   /health:
     get:
       tags:
@@ -230,7 +225,6 @@ paths:
           description: "Forbidden"
         "404":
           description: "Not Found"
-      deprecated: false
   /info:
     get:
       tags:
@@ -250,7 +244,6 @@ paths:
           description: "Forbidden"
         "404":
           description: "Not Found"
-      deprecated: false
 definitions:
   SingleValidationMessage:
     type: "object"
@@ -268,10 +261,10 @@ definitions:
       severity:
         type: "string"
         enum:
-        - "INFORMATION"
-        - "WARNING"
         - "ERROR"
         - "FATAL"
+        - "INFORMATION"
+        - "WARNING"
     title: "SingleValidationMessage"
   ValidationResponse:
     type: "object"

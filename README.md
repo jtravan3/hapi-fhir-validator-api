@@ -9,11 +9,11 @@ is a standard for data transmission within healthcare.
 
 ## Structure of the API
 
-See our [Swagger technical reference](docs/technical-reference)
+See our [Swagger technical reference](./docs/technical-reference)
 
 ## Get Started
 
-Check out our [How To Validate FHIR Resources Guide](docs/how-to-validate-fhir-resources)
+Check out our [How To Validate FHIR Resources Guide](./docs/how-to-validate-fhir-resources)
 
 ## Developer Setup
 

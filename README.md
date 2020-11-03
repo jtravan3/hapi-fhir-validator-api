@@ -1,5 +1,9 @@
 # HAPI FHIR Validator API
 
+![Java CI](https://github.com/jtravan3/hapi-fhir-validator-api/workflows/Java%20CI/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 ## What is the FHIR Validator API?
 
 The HAPI FHIR Validator API is a simple REST API in order to validate the structure and content of a FHIR object. The API uses

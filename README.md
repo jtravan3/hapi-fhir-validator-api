@@ -149,3 +149,29 @@ If there are issues the messages will be associated with their designated severi
 }
 ```
 
+## Contributing
+Please see [CONTRIBUTING.md](https://github.com/jtravan3/hapi-fhir-validator-api/blob/master/CONTRIBUTING.md) for more details regarding contributing issues or code.
+
+## Questions
+If you are experiencing a bug, please feel free to file an issue. For general questions, please post them to [StackOverflow](https://stackoverflow.com/search?q=hapi-fhir-validator-api) with the tag `hapi-fhir-validator-api`.
+
+## License
+The content of this project itself is licensed under the [Creative Commons Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/) license, and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/jtravan3/hapi-fhir-validator-api/blob/master/LICENSE.md).
+
+## Resources
+
+### Spring Boot
+
+For further references with Spring Boot:
+
+- [Spring Initializr](https://start.spring.io/)
+- [Getting Started](https://spring.io/guides/gs/spring-boot/)
+
+### Maven
+
+For further references with Maven's dependency management framework:
+
+- [Spring and Maven](https://spring.io/guides/gs/spring-boot/)
+- [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+- [Apache Maven Getting Started](https://maven.apache.org/guides/getting-started/)
+

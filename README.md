@@ -19,6 +19,14 @@ See our [Swagger technical reference](https://github.com/jtravan3/hapi-fhir-vali
 
 Check out our [How To Validate FHIR Resources Guide](https://github.com/jtravan3/hapi-fhir-validator-api/blob/master/docs/how-to-validate-fhir-resources.md)
 
+## Quickstart
+
+```bash
+docker run --name hapi-fhir-validator-api -p 5000:5000 jtravan3/hapi-fhir-validator-api:latest
+```
+
+Access the API by visiting [http://localhost:5000/swagger-ui/index.html](http://localhost:5000/swagger-ui/index.html). From there you can hit the endpoints directly.
+
 ## Developer Setup
 
 ### Environment Setup (Without Docker)
@@ -52,7 +60,7 @@ The project is configured with Spring dev tools which allows for hot reloads wit
 rebuild the project after making a change (In IntelliJ use `Build -> Build Project` or `CMD + F9`) and the application will
 auto re-deploy.
 
-5.) Access the API by visiting `http://localhost:5000/swagger-ui/index.html`. From there you can hit the endpoints directly.
+5.) Access the API by visiting [http://localhost:5000/swagger-ui/index.html](http://localhost:5000/swagger-ui/index.html). From there you can hit the endpoints directly.
 
 6.) Success!
 
@@ -72,13 +80,13 @@ git clone git@github.com:jtravan3/hapi-fhir-validator-api.git
 docker-compose up
 ```
 
-4.) Access the API by visiting `http://localhost:5000/swagger-ui/index.html`. From there you can hit the endpoints directly.
+4.) Access the API by visiting [http://localhost:5000/swagger-ui/index.html](http://localhost:5000/swagger-ui/index.html). From there you can hit the endpoints directly.
 
 5.) Success!
 
 ## Using Swagger
 
-1.) Access the API at `http://localhost:5000/swagger-ui/index.html`. You should see the following homepage.
+1.) Access the API at [http://localhost:5000/swagger-ui/index.html](http://localhost:5000/swagger-ui/index.html). You should see the following homepage.
 
 ![Swagger Home Page](./images/swagger-home.png)
 

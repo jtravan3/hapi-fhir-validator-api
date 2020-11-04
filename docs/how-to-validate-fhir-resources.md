@@ -4,9 +4,10 @@ This guide describes how an application can validate a FHIR object using the API
 
 ## Javascript
 
-To validate a FHIR object, first determine which version of FHIR you wan to validate against. There are four API endpoints
+To validate a FHIR object, first determine which version of FHIR you wan to validate against. There are five API endpoints
 for each endpoint that is possible to validate against. They are:
 
+* `POST /fhir/r5/validate`
 * `POST /fhir/r4/validate`
 * `POST /fhir/v2/validate`
 * `POST /fhir/v2_1/validate`

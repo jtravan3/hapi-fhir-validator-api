@@ -177,11 +177,21 @@
                             <password>${env.DOCKER_HUB_PASSWORD}</password>
                         </auth>
                     </to>
+                    <container>
+                        <jvmFlags>
+                            <jvmFlag>-Xms2048m</jvmFlag>
+                            <jvmFlag>-Xmx4096m</jvmFlag>
+                        </jvmFlags>
+                        <format>OCI</format>
+                    </container>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>-Xms2048m -Xmx4096m</jvmArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>

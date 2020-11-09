@@ -1,8 +1,4 @@
 ---
-id: technical-reference
-title: Technical Reference
-api: hapi-fhir-validator-api
----
 swagger: "2.0"
 info:
   description: "This API is used to validate all FHIR (http://www.hl7.org/fhir/) schemas"

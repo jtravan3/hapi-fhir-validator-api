@@ -41,19 +41,12 @@ public class FhirValidatorApplicationTests {
 					((ObjectNode)jsonNodeTree).put("host", "localhost:5000");
 					String jsonAsYaml = new YAMLMapper().writeValueAsString(jsonNodeTree);
 
-					// Add harvest cli front matter
-					String fullSwaggerString = "---\n" +
-							"id: technical-reference\n" +
-							"title: Technical Reference\n" +
-							"api: hapi-fhir-validator-api\n" +
-							jsonAsYaml;
-
 					File technicalReference = new File("docs/technical-reference.yaml");
 					if (technicalReference.exists()) {
 						technicalReference.delete();
 					}
 
-					FileUtils.writeStringToFile(technicalReference, fullSwaggerString, "UTF-8");
+					FileUtils.writeStringToFile(technicalReference, jsonAsYaml, "UTF-8");
 				});
 
 	}

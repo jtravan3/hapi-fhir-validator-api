@@ -13,7 +13,9 @@ is a standard for data transmission within healthcare.
 
 ## Structure of the API
 
-See our [Swagger technical reference](https://github.com/jtravan3/hapi-fhir-validator-api/blob/master/docs/technical-reference.yaml)
+See our [Swagger Hub API](https://app.swaggerhub.com/apis/jtravan/hapi-fhir-validator-api/1.5.0)
+
+If you want to see the raw JSON visit [http://localhost:5000/v2/api-docs](http://localhost:5000/v2/api-docs)
 
 ## Get Started
 

@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "This API is used to validate all FHIR (http://www.hl7.org/fhir/) schemas"
-  version: "1.5.0"
+  version: "1.6.0"
   title: "HAPI FHIR Validator API"
   contact:
     name: "John Ravan"

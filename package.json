@@ -1,6 +1,6 @@
 {
   "name": "hapi-fhir-validator-api",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "This application serves REST endpoints in front of the official Hapi FHIR framework in order to validate FHIR resources passed in as JSON. See http://hapifhir.io/ for details.",
   "scripts": {
     "test": "./mvnw test",

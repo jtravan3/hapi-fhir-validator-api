@@ -3,8 +3,7 @@ package com.jtravan.process;
 import com.jtravan.model.ExecutionInput;
 import com.jtravan.model.ExecutionOutput;
 import com.jtravan.model.Hl7FhirValidatorExecutionOutput;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -12,9 +11,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 @Component
+@Slf4j
 public class Hl7FhirValidatorExecutor implements Validator {
-
-    private static final Logger LOG = LoggerFactory.getLogger(Hl7FhirValidatorExecutor.class);
 
     /**
      * For reference: http://wiki.hl7.org/index.php?title=Using_the_FHIR_Validator
@@ -56,7 +54,7 @@ public class Hl7FhirValidatorExecutor implements Validator {
         String s;
         StringBuilder stdOut = new StringBuilder();
         while ((s = stdOutput.readLine()) != null) {
-            LOG.info(s);
+            log.info(s);
             stdOut.append(s);
         }
         stdOutput.close();

@@ -44,6 +44,12 @@ public class ValidationEntityExceptionHandler extends ResponseEntityExceptionHan
         return new ResponseEntity<>(validationResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
+    @ExceptionHandler(value = { Exception.class })
+    public ResponseEntity<ValidationResponse> handleException(Exception ex) {
+        ValidationResponse validationResponse = formatValidationResponse(ex);
+        return new ResponseEntity<>(validationResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     private ValidationResponse formatValidationResponse(Exception ex) {
         if ("Unexpected failure while validating resource".equals(ex.getMessage())) {
             ValidationResponse validationResponse = new ValidationResponse();

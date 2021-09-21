@@ -2,17 +2,16 @@ package com.jtravan.process;
 
 import ca.uhn.fhir.context.FhirVersionEnum;
 import ca.uhn.fhir.validation.SingleValidationMessage;
-import com.jtravan.config.HAPIValidatorConfig;
+import com.jtravan.config.*;
 import com.jtravan.exceptions.UnhandledFhirVersionException;
 import com.jtravan.model.ExecutionInput;
 import com.jtravan.model.ExecutionOutput;
 import com.jtravan.model.Hl7FhirValidatorExecutionInput;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
@@ -22,40 +21,50 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-@SpringBootTest(classes = {HapiFhirValidator.class, HAPIValidatorConfig.class})
+@SpringBootTest(classes = {
+        HapiFhirValidator.class,
+        r5ValidatorConfig.class,
+        r4ValidatorConfig.class,
+        r3ValidatorConfig.class,
+        r2ValidatorConfig.class,
+        r2_1ValidatorConfig.class})
 @ContextConfiguration
+@Slf4j
 public class HapiFhirValidatorTest {
-
-    private static final Logger logger = LoggerFactory.getLogger(HapiFhirValidatorTest.class);
 
     @Autowired
     private HapiFhirValidator hapiFhirValidator;
 
     @Test
-    @Disabled // Weird results right now
+    @Disabled
     public void testR2Validator() throws Exception {
-        testValidator("classpath:r2_Observation.json", FhirVersionEnum.DSTU2);
+        testValidator("classpath:r2_Observation.json", FhirVersionEnum.DSTU2, false);
+        testValidator("classpath:r2_Observation.json", FhirVersionEnum.DSTU2, true);
     }
 
     @Test
     @Disabled // Weird results right now
     public void testR2_1Validator() throws Exception {
-        testValidator("classpath:r2_1_Observation.json", FhirVersionEnum.DSTU2_1);
+        testValidator("classpath:r2_1_Observation.json", FhirVersionEnum.DSTU2_1, false);
+        testValidator("classpath:r2_1_Observation.json", FhirVersionEnum.DSTU2_1, true);
     }
 
     @Test
     public void testR3Validator() throws Exception {
-        testValidator("classpath:r3_Observation.json", FhirVersionEnum.DSTU3);
+        testValidator("classpath:r3_Observation.json", FhirVersionEnum.DSTU3, false);
+        testValidator("classpath:r3_Observation.json", FhirVersionEnum.DSTU3, true);
     }
 
     @Test
     public void testR4Validator() throws Exception {
-        testValidator("classpath:r4_Observation.json", FhirVersionEnum.R4);
+        testValidator("classpath:r4_Observation.json", FhirVersionEnum.R4, false);
+        testValidator("classpath:r4_Observation.json", FhirVersionEnum.R4, true);
     }
 
     @Test
     public void testR5Validator() throws Exception {
-        testValidator("classpath:r5_Observation.json", FhirVersionEnum.R5);
+        testValidator("classpath:r5_Observation.json", FhirVersionEnum.R5, false);
+        testValidator("classpath:r5_Observation.json", FhirVersionEnum.R5, true);
     }
 
     /**
@@ -65,19 +74,20 @@ public class HapiFhirValidatorTest {
      * @throws IOException
      * @throws UnhandledFhirVersionException
      */
-    private void testValidator(String path, FhirVersionEnum version) throws IOException, UnhandledFhirVersionException {
+    private void testValidator(String path, FhirVersionEnum version, Boolean isCodeSystemIgnored) throws IOException, UnhandledFhirVersionException {
         Path filePath = ResourceUtils.getFile(path).toPath();
         String content = Files.readString(filePath, StandardCharsets.UTF_8);
 
         ExecutionInput executionInput = new Hl7FhirValidatorExecutionInput();
         executionInput.setJsonString(content);
         executionInput.setVersion(version);
+        executionInput.setIsCodeSystemIgnored(isCodeSystemIgnored);
         ExecutionOutput executionOutput = hapiFhirValidator.validate(executionInput);
         if (executionOutput.getValidationResult().isSuccessful()) {
             assertThat(true).isTrue();
         } else {
             for (SingleValidationMessage message : executionOutput.getValidationResult().getMessages()) {
-                logger.error(message.getMessage());
+                log.error(message.getMessage());
             }
             fail(version.name() + " failed");
         }

@@ -14,4 +14,5 @@ public abstract class ExecutionInput {
     private String jsonString;
     private File json;
     private FhirVersionEnum version;
+    private Boolean isCodeSystemIgnored;
 }

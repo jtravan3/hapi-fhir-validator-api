@@ -6,6 +6,7 @@ import com.jtravan.exceptions.UnhandledFhirVersionException;
 import com.jtravan.model.FhirMediaType;
 import com.jtravan.services.ValidationService;
 import io.swagger.annotations.*;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class ValidationEndpointV5 {
     private final ValidationService validationService;
 
     @Autowired
-    public ValidationEndpointV5(ValidationService validationService) {
+    public ValidationEndpointV5(@NonNull ValidationService validationService) {
         this.validationService = validationService;
     }
 
@@ -40,8 +41,9 @@ public class ValidationEndpointV5 {
     }
     )
     public ValidationResponse validate(@ApiParam(name = "fhirJson", value = "FHIR JSON object to be validated", required = true)
-                                       @RequestBody Object fhirJson) throws IOException, UnhandledFhirVersionException {
-        return validationService.validate(fhirJson, FhirVersionEnum.R5);
+                                       @RequestBody Object fhirJson,
+                                       @RequestHeader(value = "X-Validate-Ignore-Codesystem", required = false) Boolean isCodeSystemsIgnored) throws IOException, UnhandledFhirVersionException {
+        return validationService.validate(fhirJson, FhirVersionEnum.R5, isCodeSystemsIgnored);
     }
 
 }

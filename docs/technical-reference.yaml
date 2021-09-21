@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "This API is used to validate all FHIR (http://www.hl7.org/fhir/) schemas"
-  version: "1.6.0"
+  version: "1.7.0"
   title: "HAPI FHIR Validator API"
   contact:
     name: "John Ravan"
@@ -45,6 +45,11 @@ paths:
         required: true
         schema:
           type: "object"
+      - name: "X-Validate-Ignore-Codesystem"
+        in: "header"
+        description: "X-Validate-Ignore-Codesystem"
+        required: false
+        type: "boolean"
       responses:
         "200":
           description: "OK"
@@ -80,6 +85,11 @@ paths:
         required: true
         schema:
           type: "object"
+      - name: "X-Validate-Ignore-Codesystem"
+        in: "header"
+        description: "X-Validate-Ignore-Codesystem"
+        required: false
+        type: "boolean"
       responses:
         "200":
           description: "OK"
@@ -115,6 +125,11 @@ paths:
         required: true
         schema:
           type: "object"
+      - name: "X-Validate-Ignore-Codesystem"
+        in: "header"
+        description: "X-Validate-Ignore-Codesystem"
+        required: false
+        type: "boolean"
       responses:
         "200":
           description: "OK"
@@ -150,6 +165,11 @@ paths:
         required: true
         schema:
           type: "object"
+      - name: "X-Validate-Ignore-Codesystem"
+        in: "header"
+        description: "X-Validate-Ignore-Codesystem"
+        required: false
+        type: "boolean"
       responses:
         "200":
           description: "OK"
@@ -185,6 +205,11 @@ paths:
         required: true
         schema:
           type: "object"
+      - name: "X-Validate-Ignore-Codesystem"
+        in: "header"
+        description: "X-Validate-Ignore-Codesystem"
+        required: false
+        type: "boolean"
       responses:
         "200":
           description: "OK"

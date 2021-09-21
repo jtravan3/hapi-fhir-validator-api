@@ -13,7 +13,7 @@ is a standard for data transmission within healthcare.
 
 ## Structure of the API
 
-See our [Swagger Hub API](https://app.swaggerhub.com/apis/jtravan/hapi-fhir-validator-api/1.6.0)
+See our [Swagger Hub API](https://app.swaggerhub.com/apis/jtravan/hapi-fhir-validator-api/1.7.0)
 
 If you want to see the raw JSON visit [http://localhost:5000/v2/api-docs](http://localhost:5000/v2/api-docs)
 
@@ -152,6 +152,12 @@ If there are issues the messages will be associated with their designated severi
   "exception": null
 }
 ```
+
+## Relaxing Validation
+
+If you want to relax the validation you can pass the header `X-Validate-Ignore-Codesystem` with a value of `true` to ignore
+certain code systems and profiles. This will allow you to only validate the structure of the FHIR resources rather than focusing
+on the systems included. This is helpful if you can't control the source of the data that you are validating.
 
 ## Contributing
 Please see [CONTRIBUTING.md](https://github.com/jtravan3/hapi-fhir-validator-api/blob/master/CONTRIBUTING.md) for more details regarding contributing issues or code.

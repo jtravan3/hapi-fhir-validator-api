@@ -50,7 +50,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("HAPI FHIR Validator API")
                 .description("This API is used to validate all FHIR (http://www.hl7.org/fhir/) schemas")
-                .version("1.6.0")
+                .version("1.7.0")
                 .license("MIT License")
                 .licenseUrl("https://www.mit.edu/")
                 .contact(contact)

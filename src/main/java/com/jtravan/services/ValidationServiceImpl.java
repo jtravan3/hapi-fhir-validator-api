@@ -9,6 +9,7 @@ import com.jtravan.model.ExecutionInput;
 import com.jtravan.model.ExecutionOutput;
 import com.jtravan.model.Hl7FhirValidatorExecutionInput;
 import com.jtravan.process.HapiFhirValidator;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,15 +26,16 @@ public class ValidationServiceImpl implements ValidationService {
     private final ObjectMapper jacksonJsonObjectMapper;
 
     @Autowired
-    public ValidationServiceImpl(HapiFhirValidator hapiFhirValidator, ExecutionOutputParserService executionOutputParserService,
-                                 ObjectMapper jacksonJsonObjectMapper) {
+    public ValidationServiceImpl(@NonNull HapiFhirValidator hapiFhirValidator,
+                                 @NonNull ExecutionOutputParserService executionOutputParserService,
+                                 @NonNull ObjectMapper jacksonJsonObjectMapper) {
         this.hapiFhirValidator = hapiFhirValidator;
         this.executionOutputParserService = executionOutputParserService;
         this.jacksonJsonObjectMapper = jacksonJsonObjectMapper;
     }
 
     @Override
-    public ValidationResponse validate(Object fhirJson, FhirVersionEnum version) throws IOException, UnhandledFhirVersionException {
+    public ValidationResponse validate(Object fhirJson, FhirVersionEnum version, Boolean isCodeSystemIgnored) throws IOException, UnhandledFhirVersionException {
 
         String jsonString = jacksonJsonObjectMapper.writeValueAsString(fhirJson == null ? "" : fhirJson);
         boolean isValidJsonString = isJSONValid(jsonString);
@@ -42,6 +44,7 @@ public class ValidationServiceImpl implements ValidationService {
             ExecutionInput executionInput = new Hl7FhirValidatorExecutionInput();
             executionInput.setJsonString(jsonString);
             executionInput.setVersion(version);
+            executionInput.setIsCodeSystemIgnored(isCodeSystemIgnored);
 
             // Execute
             ExecutionOutput executionOutput = hapiFhirValidator.validate(executionInput);

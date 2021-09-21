@@ -11,19 +11,19 @@
 
     <groupId>com.jtravan</groupId>
     <artifactId>hapi-fhir-validator-api</artifactId>
-    <version>1.6.0</version>
+    <version>1.7.0</version>
 
     <name>hapi-fhir-validator-api</name>
     <description>Used to validate any FHIR (http://www.hl7.org/fhir/) objects</description>
 
     <properties>
         <java.version>11</java.version>
-        <hapi.fhir.version>5.4.2</hapi.fhir.version>
+        <hapi.fhir.version>5.0.1</hapi.fhir.version>
         <springfox.swagger.version>3.0.0</springfox.swagger.version>
         <apache.commons.lang3.version>3.12.0</apache.commons.lang3.version>
         <commons.io.version>2.11.0</commons.io.version>
-        <newrelic.version>6.1.0</newrelic.version>
         <jackson.version>2.12.4</jackson.version>
+        <jib.version>3.1.4</jib.version>
     </properties>
 
     <dependencies>
@@ -151,11 +151,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.newrelic.agent.java</groupId>
-            <artifactId>newrelic-api</artifactId>
-            <version>${newrelic.version}</version>
-        </dependency>
 
     </dependencies>
 
@@ -164,12 +159,12 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>${jib.version}</version>
                 <configuration>
                     <to>
                         <image>docker.io/jtravan3/hapi-fhir-validator-api</image>
                         <tags>
-                            <tag>1.6.0</tag>
+                            <tag>1.7.0</tag>
                             <tag>latest</tag>
                         </tags>
                         <auth>
@@ -179,8 +174,8 @@
                     </to>
                     <container>
                         <jvmFlags>
-                            <jvmFlag>-Xms2048m</jvmFlag>
-                            <jvmFlag>-Xmx4096m</jvmFlag>
+                            <jvmFlag>-Xms4096m</jvmFlag>
+                            <jvmFlag>-Xmx8192m</jvmFlag>
                         </jvmFlags>
                         <format>OCI</format>
                     </container>
@@ -190,7 +185,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <jvmArguments>-Xms2048m -Xmx4096m</jvmArguments>
+                    <jvmArguments>-Xms4096m -Xmx8192m</jvmArguments>
                 </configuration>
             </plugin>
         </plugins>

@@ -8,5 +8,5 @@ import java.io.IOException;
 
 public interface ValidationService {
 
-    ValidationResponse validate(Object fhirJson, FhirVersionEnum version) throws IOException, UnhandledFhirVersionException;
+    ValidationResponse validate(Object fhirJson, FhirVersionEnum version, Boolean isCodeSystemIgnored) throws IOException, UnhandledFhirVersionException;
 }

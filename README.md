@@ -96,7 +96,7 @@ docker-compose up
 
 ![Validation Endpoint](./images/validation-endpoint.png)
 
-3.) Replace the `{}` with the FHIR JSON object that you want to validate
+3.) Replace the `{}` with the FHIR JSON object that you want to validate and select your `X-Validate-Ignore-Codesystem` header value.
 
 ![FHIR JSON String](./images/fhir-json-string.png)
 

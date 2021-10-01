@@ -185,3 +185,8 @@ For further references with Maven's dependency management framework:
 - [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 - [Apache Maven Getting Started](https://maven.apache.org/guides/getting-started/)
 
+
+## Support for Implementation Guides
+
+Support form Implementation Guides was added. You need to store the `.tgz` file in the `/resources/ig` folder.
+
